@@ -1,8 +1,6 @@
 import "./index.css"
 
 import {BrowserRouter,Route,Link,Routes} from "react-router-dom"
-import ForgotPage from "../src/Components/Forgotpage"
-import Register from "../src/Components/Registerpage"
 
 import LoginPage from "../src/Components/Loginpage"
 
@@ -17,8 +15,6 @@ function App(){
     <BrowserRouter>
     <Routes>
       <Route path='/login' element={<LoginPage/>}></Route>
-      <Route path='/forgot' element={<ForgotPage/>}></Route>
-      <Route path='/register' element={<Register/>}></Route>
 
     </Routes>
     </BrowserRouter>
