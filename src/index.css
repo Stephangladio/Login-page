@@ -1,17 +1,498 @@
-
 *{
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
     margin: 0;
 }
 body{
+  display: block;
 background-color: rgb(1, 9, 23);
 
 }
-.img{
-    background-image: url('./Components/welcome\ back.jpeg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 90px;
+.box-container{
+  align-items: center;
+  max-width:  35%;
+  margin: 7% auto ;
+ }
+#welcomeback{
+  font-size: 1em;
+  font-weight: bold;
+    position: absolute;
+    top: 18%;
+    left: 46%;
+    color: white;
+}
+#subtitle{
+  
+    position: absolute;
+    top: 23%;
+    left: 47%;
+    font-size: 10px;
+    color: white;
 }
 
+
+
+#card{
+max-width:100%;
+ margin: "0 auto";
+background-color:  #1b182a;
+
+}
+
+
+.img-container{
+  width: 100%;
+}
+
+
+.email-textfield{
+    background-color: rgb(8, 4, 19);
+}
+.password-textfield{
+    background-color: rgb(8, 4, 19);
+
+}
+#password{
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#email{
+  color: white;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+#vpnkey{
+  font-size: 15px;
+}
+#lock-icon{
+  font-size: 15px;     
+  margin-right: 5px;
+}
+#login-forgot{
+   margin-top: 10px; 
+   margin-bottom: -25px; 
+  color: white; 
+   font-size: 15px;
+  padding: 10px;
+}
+#forgot-password{
+  font-size: 15px;
+  color: white; 
+  text-decoration: none;
+  padding: 5px; 
+  margin-left: 5px; 
+  cursor: pointer;
+}
+#login-with-email{
+  font-size: 100%;
+    color: white; 
+    text-decoration: none;
+    padding:10px;
+    margin-right: 10px; 
+    cursor: pointer;
+}
+#donot-have-account{
+  text-align: center; 
+  color: white; 
+  margin-top: 20px; 
+}
+
+@media (max-width:1024px){
+  #login-forgot ,#login-with-email ,#forgot-password ,#vpnkey,#lock-icon{
+    text-align: center;
+      font-size: 12px;
+  
+
+}
+}
+
+@media (max-width:768px){
+  .box-container {
+    max-width: 80%; 
+   margin: 10% auto;
+  }
+  #welcomeback {
+    font-size: 1em; 
+}
+
+#subtitle {
+    font-size: 10px; 
+}
+  #login-forgot ,#login-with-email ,#forgot-password ,#vpnkey,#lock-icon{
+    text-align: center;
+      font-size: 10px;
+  
+
+}
+#login-forgot ,#login-with-email ,#forgot-password ,#vpnkey,#lock-icon{
+    font-size: 12px;
+}
+
+}
+
+  @media (max-width: 600px) {
+  
+    .box-container {
+      max-width: 80%; 
+     margin: 20% auto;
+    }
+  
+    #welcomeback {
+        font-size: .8em; 
+        top:15%;
+        left: 40%;
+    }
+  
+    #subtitle {
+        font-size: 8px; 
+        top:18%;
+        left: 42%;
+    }
+  
+    #login-forgot ,#login-with-email ,#forgot-password ,#vpnkey,#lock-icon{
+      text-align: center;
+        font-size: 7px;
+    }
+    #donot-have-account{
+      font-size: 10px;
+    }
+  
+    
+    
+  }
+
+
+/* *{
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  margin: 0;
+}
+body{
+display: block;
+background-color: rgb(1, 9, 23);
+
+}
+.box-container{
+max-width:  35%;
+margin: 7% auto ;
+}
+#welcomeback{
+font-size: 1em;
+font-weight: bold;
+  position: absolute;
+  top: 18%;
+  left: 46%;
+  color: white;
+}
+#subtitle{
+
+  position: absolute;
+  top: 23%;
+  left: 47%;
+  font-size: 10px;
+  color: white;
+}
+
+
+
+#card{
+max-width:100%;
+margin: "0 auto";
+background-color:  #1b182a;
+
+}
+
+
+.img-container{
+width: 100%;
+}
+
+
+.email-textfield{
+  background-color: rgb(8, 4, 19);
+}
+.password-textfield{
+  background-color: rgb(8, 4, 19);
+
+}
+#password{
+color: white;
+margin-top: 10px;
+margin-bottom: 10px;
+}
+#email{
+color: white;
+margin-top: 15px;
+margin-bottom: 10px;
+}
+#vpnkey{
+font-size: 15px;
+}
+#lock-icon{
+font-size: 15px;     
+margin-right: 5px;
+}
+#login-forgot{
+margin-left: 10px;
+ margin-top: 10px; 
+ margin-bottom: -25px; 
+color: white; 
+ font-size: 15px;
+padding: 10px;
+}
+#forgot-password{
+font-size: 15px;
+color: white; 
+text-decoration: none;
+padding: 5px; 
+margin-left: 5px; 
+cursor: pointer;
+}
+#login-with-email{
+font-size: 15px;
+  color: white; 
+  text-decoration: none;
+  padding:10px;
+  margin-right: 10px; 
+  cursor: pointer;
+}
+#donot-have-account{
+text-align: center; 
+color: white; 
+margin-top: 20px; 
+}
+
+@media (max-width: 600px) {
+
+.box-container {
+  max-width: 80%; 
+    margin: 30% auto;
+}
+
+#welcomeback {
+    font-size: .8em; 
+    left: 40%;
+}
+
+#subtitle {
+    font-size: 8px; 
+    left: 42%;
+}
+
+#login-forgot ,#login-with-email ,#forgot-password ,#vpnkey,#lock-icon{
+  text-align: center;
+    font-size: 7px;
+}
+#donot-have-account{
+  font-size: 10px;
+}
+
+}
+
+
+*/
+
+
+
+
+/*
+@media (max-width: 600px) {
+  
+  .box-container {
+    max-width: 80%; 
+   margin: 20% auto;
+  }
+
+  #welcomeback {
+      font-size: .8em; 
+      left: 40%;
+  }
+
+  #subtitle {
+      font-size: 8px; 
+      left: 42%;
+  }
+
+  #login-forgot ,#login-with-email ,#forgot-password ,#vpnkey,#lock-icon{
+    text-align: center;
+      font-size: 7px;
+  }
+  #donot-have-account{
+    font-size: 10px;
+  }
+
+  
+  
+}
+
+@media (max-width: 768px) {
+  .box-container {
+      max-width: 70%;
+      margin: 20% auto;
+    }
+  }
+  */
+
+
+
+/*@media (max-width: 601px)  {
+  #welcomeback{
+    font-size: .5em;
+    font-weight: bold;
+      position: absolute;
+      top: 10%;
+      left: 45%;
+  }
+  #subtitle{
+    
+      position: absolute;
+      top: 12%;
+      left: 45%;
+      font-size: 6px;
+  }
+}
+
+
+
+@media  (max-width: 1025px) {
+    .welcome{
+      font-size: 10px;
+    }
+    .subtitle {
+      font-size: 11px;
+    }
+  }
+  @media  (max-width: 800px) {
+    .welcomback{
+      background-color: aqua;
+      font-size: 6;
+    }
+    .subtitle {
+      font-size: 11px;
+    }
+  }
+  
+  @media (min-width: 601px)  {
+    .welcomback {
+      font-size: 6px;
+    }
+    .subtitle {
+      font-size: 12px;
+    }
+  }
+  
+
+  @media (min-width: 1025px) {
+    .welcome {
+      font-size: 36px;
+
+    }
+    .subtitle {
+      font-size: 14px;
+    }
+  }
+*/
+  
+
+
+
+
+
+
+/*
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(39, 38, 54);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.forgot-page a{
+    text-decoration: none;
+    color: white;
+    padding: 5px;
+}
+.main{
+    padding: 5px;
+    margin: 5px;
+    min-width: 50vh;
+}
+
+div h1{
+    text-align: center;
+}
+.input-box{
+    background-color: rgb(15, 15, 28);
+    color: white;
+    width: 100%;
+    height: 50px;
+    border: none;
+    outline: none;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+.login-box{
+    width: 100%;
+    height: 50px ;
+    margin-top: 10px;
+    margin-bottom:30px ; 
+    border: none;
+    outline: none;
+    background-color: rgb(33, 194, 4);
+}
+
+.register-now{
+    margin-left: 30px;
+    margin-top: 100px;
+}
+.register-now a{
+    text-decoration: rgb(49, 174, 126);
+}
+.hello{
+    color: white;
+}
+img{
+    width: 450px;
+}
+h3{
+    position: absolute;
+    top: 13%;
+    left: 45%;
+}
+.sign-in-to{
+    position: absolute;
+    top: 17%;
+    left:45%
+}
+.withem{
+    margin-bottom: 10px;
+}
+input[type=checkbox]{
+    background-color: transparent;
+    border: 1px solid green;
+}
+@media screen and (max-width:640px){
+    h3{
+        position: absolute;
+        top: 13%;
+        left:38%;
+    }
+    .sign-in-to{
+        position: absolute;
+        top: 17%;
+        left: 38%;
+    }
+};
+
+*/

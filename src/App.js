@@ -1,6 +1,8 @@
 import "./index.css"
 
+
 import {BrowserRouter,Route,Link,Routes} from "react-router-dom"
+
 
 import LoginPage from "../src/Components/Loginpage"
 
@@ -15,6 +17,7 @@ function App(){
     <BrowserRouter>
     <Routes>
       <Route path='/login' element={<LoginPage/>}></Route>
+    
 
     </Routes>
     </BrowserRouter>

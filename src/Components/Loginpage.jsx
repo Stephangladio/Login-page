@@ -9,21 +9,28 @@ import VpnKey from "@mui/icons-material/VpnKey";
 import LockIcon from '@mui/icons-material/Lock';
 import "../../src/index.css"
 import { useState } from "react";
-import {  InputAdornment, IconButton } from '@mui/material';
+import img1 from "./welcome back.jpeg"
+import { InputAdornment, IconButton } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 
 
 
 function LoginPage() {
- 
+
   const [showPassword, setShowPassword] = useState(false);
+
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+
 
 
 
 
   return (
-    <Box sx={{ maxWidth: 450, margin: "0 auto", }}>
+    <Box className="box-container" >
       <Formik initialValues={{ email: "", password: "" }}
         onSubmit={(values, { setSubmitting }) => {
           console.log(values);
@@ -32,80 +39,61 @@ function LoginPage() {
         validationSchema={loginSchema}>
         {({ values, errors, touched, handleChange, handleSubmit, isSubmitting }) => (
           <form onSubmit={handleSubmit}>
-            <Card sx={{ maxWidth:450, margin: "50px auto", backgroundColor: " #201f30",}}>
-              <div className="img" style={{textAlign:"center",}}>
-                <br/>
-               <Typography variant="span" style={{color:"white"}}>Welcome back!</Typography><br/>
-               <Typography variant="span" style={{color:"white", fontSize:"11px"}}>Sign in to continue</Typography>
-               
-              </div>
-         
-              
+            <Card id="card">
+
+              <img src={img1} className="img-container" />
+              <Typography id="welcomeback">
+                Welcome back!
+              </Typography>
+              <Typography id="subtitle">
+                Sign in to continue
+              </Typography>
               <CardContent>
 
                 <Grid container spacing={1}>
-                  <Typography sx={{ color: "white" }}>E-mail</Typography>
+                  <Typography id="email">E-mail</Typography>
                   <Grid xs={12}>
                     <TextField
                       variant="outlined"
                       type="email"
                       name="email"
-                      className="email"
-                      
+                      className="email-textfield"
                       fullWidth
-                      style={{
-                        backgroundColor: "rgb(8, 4, 19)",
-                        marginTop: "10px",
-                      }}
                       InputProps={{ style: { color: "white" } }} // Set the text color here
-
-                   
-
                       onChange={handleChange}
                       size="small"
                       value={values.email}
                     />
-                    <Typography variant="p" color={"red"}> {touched.email && errors.email}</Typography>
+                    <Typography variant="p" color={"white"}> {touched.email && errors.email}</Typography>
                   </Grid>
-                  <Typography sx={{ color: "white", marginTop: "5px" }}>Password</Typography>
+                  <Typography id="password">Password</Typography>
                   <Grid xs={12}>
                     <TextField
                       variant="outlined"
                       type={showPassword ? 'text' : 'password'}
-
+                      className="password-textfield"
                       name="password"
                       fullWidth
                       disableRipple
-                      style={{
-                        color: "white",
-                        backgroundColor: "rgb(8, 4, 19)",
-                        marginTop: "10px",
-                      }}
-                    
                       InputProps={{
                         style: { color: 'white' },
                         endAdornment: (
-                            <InputAdornment position="end">
-                                <IconButton
-                               
-                                    onClick={() => setShowPassword(!showPassword)}
-                                    edge="end"
-                                >
-                                    {showPassword ?  <VisibilityOff style={{color:"gray"}}/> : <Visibility style={{color:"gray"}} />}
-                                </IconButton>
-                            </InputAdornment>
+                          <InputAdornment position="end" display="none">
+                            <IconButton
+                              onClick={() => setShowPassword(!showPassword)}
+                              edge="end"
+                            >
+                              {showPassword ? <VisibilityOff style={{ color: "gray" }} /> : <Visibility style={{ color: "gray" }} />}
+                            </IconButton>
+                          </InputAdornment>
                         ),
-                    }}
-                    
-
+                      }}
                       onChange={handleChange}
                       size="small"
                       value={values.password}
                     />
-                    <Typography variant="p" color={"red"}> {touched.password && errors.password}</Typography>
+                    <Typography variant="p" color={"white"}> {touched.password && errors.password}</Typography>
                   </Grid>
-
-
                   <Typography sx={{ color: "white" }} >   <Checkbox disableRipple sx={{
                     '&:hover': { bgcolor: 'transparant' },
                     color: "green", paddingLeft: "0",
@@ -123,31 +111,23 @@ function LoginPage() {
                         textTransform: "capitalize", "&:hover": { backgroundColor: "rgb(32, 238, 17)" }
                       }}>Log in</Button>
                   </Grid>
-                  <Grid>
-                    <Typography sx={{
-                      color: "white", marginTop: "30px",
-                      marginLeft: "40px", fontSize: "15px",
-                      padding: "10px"
-                    }}>
-                      <Link sx={{
-                        color: "white", textDecoration: "none",
-                        padding: "10px", marginRight: "10px", cursor: "pointer",
-                      }}>
-                        <VpnKey sx={{ fontSize: "15px", }} /> Login with email</Link>|
-                      <Link sx={{
-                        color: "white", textDecoration: "none",
-                        padding: "5px", marginLeft: "5px", cursor: "pointer"
-                      }}><LockIcon sx={{ fontSize: "15px", marginRight: "5px" }} />Forgot your password?</Link>
-                      </Typography>
-                  </Grid>
+                  <div>
+                  <Typography id="login-forgot">
+                    <Link id="login-with-email">
+                      <VpnKey id="vpnkey" /> Login with email </Link>|
+                    <Link id="forgot-password">
+                      <LockIcon id="lock-icon"/>Forgot your password?</Link>
+                  </Typography>
+                  </div>
+
                 </Grid>
               </CardContent>
 
 
 
             </Card>
-            <Typography sx={{ textAlign: "center", color: "white" }}>Dont't have an account?
-              <Link sx={{
+            <Typography id="donot-have-account">Dont't have an account?
+              <Link style={{
                 color: "rgb(32, 238, 17)",
                 textDecoration: "none",
                 padding: "5px",
@@ -168,7 +148,116 @@ function LoginPage() {
 
 
 
+/*function LoginPage(){
+  const loginSchema= Yup.object().shape(
+    {
+      email: Yup.string().email("Invalid Email Address").required("Required"),
+      password: Yup.string().min(8,"Too Short!").max(70,"Too long!").required("Required"),
+    }
+  )
+    return(
+      <div className="main">
+        <h3>Welcom back</h3>
+        <p className="sign-in-to">Sign in to continue</p>
+       <div>  <img src={img1}/></div>
+      
+  <div className="formedit">
+        <Formik initialValues={{email:"", password:""}} 
+        onSubmit={(values,{setSubmitting})=>{
+          console.log(values);
+          setSubmitting(false);
+        }}
+        validationSchema={loginSchema}
+        >
+          {({values,errors,touched,handleChange, handleBlur, handleSubmit, isSubmitting})=>(
+  
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label htmlFor="email">E-mail</label><br/>
+            <input  className="input-box" name="email" 
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={values.email}
+            />
+            {touched.email && errors.email}
+             
+          </div>
+          <div>
+            <label htmlFor="password">Password</label><br/>
+            <input className="input-box" name="password" 
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={values.password}
+            />
+            {touched.password && errors.password}
+  
+          </div>
+          <div>
+  
+          <label><input type="checkbox"/>Remember me</label>
+          </div>
+  
+          <button  className="login-box" type="submit" disabled={isSubmitting}>Login</button>
+  
+          <div className="forgot-page">
+          <pre>  <a href="loginwithemail">🗝️ login with email  |</a> <a href="forgot">🔒Forgot your password?</a></pre>
+          </div>
+  
+          <div className="register-now">
+            <p>Don't have an account? <a href="register">Register Now</a></p>
+          </div>
+  
+        </form>
+    )}
+        </Formik>
+  
+        </div>
+      
+      
+      </div>
+    )
+  }
+  
+  export default LoginPage
+              <img src={img1} width={450} px className="img-container"/>
 
+     <Typography variant="h6" className="welcome"
+                sx={{
+                  position: "absolute",
+                  top: "12%",
+                  left: "45%",
+                  color: "white",
+                }}>Welcome back!</Typography>
+              <Typography variant="subtitle2" className="subtitle"
+                sx={{
+                  position: "absolute",
+                  top: "18%",
+                  left: "47%",
+                  color: "white",
+                  fontSize: "11px"
+                }}>Sign in to continue</Typography>
 
+   sx={{ maxWidth: isSmallScreen ? '100%' : 450, margin: '10% auto', }}
+              
+   
+    <Grid>
+                    <Typography sx={{
+                      color: "white", marginTop: "30px",
+                      marginLeft: "40px", fontSize: "15px",
+                      padding: "10px"
+                    }}>
+                      <Link sx={{
+                        color: "white", textDecoration: "none",
+                        padding: "10px", marginRight: "10px", cursor: "pointer",
+                      }}>
+                        <VpnKey sx={{ fontSize: "15px", }} /> Login with email</Link>|
+                      <Link sx={{
+                        color: "white", textDecoration: "none",
+                        padding: "5px", marginLeft: "5px", cursor: "pointer"
+                      }}><LockIcon sx={{ fontSize: "15px", marginRight: "5px" }} />Forgot your password?</Link>
+                    </Typography>
+                  </Grid>
+   
+   */
 
 export default LoginPage
